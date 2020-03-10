@@ -12,12 +12,12 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <meta name="description" content="title: sspanel v3 UIM前端部署 date: 2020&#x2F;02&#x2F;02 categories:  Tutorials  tags:  sspanel 前端 VPS  ###本文将简单介绍如何使用宝塔搭建sspanel ###准备清单  一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7 SSH工具，Windows推荐Xshell，iOS推荐Termius，And">
+  <meta name="description" content="本文将简单介绍如何使用宝塔搭建sspanel准备清单 一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7 SSH工具，Windows推荐Xshell，iOS推荐Termius，Android推荐JuiceSSH  VPS对新手我只推荐CloudCone，因为他家经常搞活动，机器比Vultr家相对稳一些(cloudcone家网站被墙了，需要自备梯子)(点此跳转) 1.准备工作升">
 <meta property="og:type" content="article">
 <meta property="og:title" content="sspanel搭建教程">
 <meta property="og:url" content="https://yun9.xyz/2020/03/10/sspanel%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/index.html">
 <meta property="og:site_name" content="云九博客">
-<meta property="og:description" content="title: sspanel v3 UIM前端部署 date: 2020&#x2F;02&#x2F;02 categories:  Tutorials  tags:  sspanel 前端 VPS  ###本文将简单介绍如何使用宝塔搭建sspanel ###准备清单  一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7 SSH工具，Windows推荐Xshell，iOS推荐Termius，And">
+<meta property="og:description" content="本文将简单介绍如何使用宝塔搭建sspanel准备清单 一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7 SSH工具，Windows推荐Xshell，iOS推荐Termius，Android推荐JuiceSSH  VPS对新手我只推荐CloudCone，因为他家经常搞活动，机器比Vultr家相对稳一些(cloudcone家网站被墙了，需要自备梯子)(点此跳转) 1.准备工作升">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png">
 <meta property="og:image" content="https://blog.anank.ke/usr/uploads/2019/09/1898578653.png">
@@ -30,13 +30,13 @@
 <meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/73544947.png">
 <meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/1161970108.png">
 <meta property="article:published_time" content="2020-03-10T00:30:17.250Z">
-<meta property="article:modified_time" content="2020-03-10T00:35:09.855Z">
+<meta property="article:modified_time" content="2020-03-10T02:11:24.078Z">
 <meta property="article:author" content="George Steven">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1583805633767">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583806761985">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -62,7 +62,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>Articles</span>2</div>
+        <div><span>Articles</span>4</div>
         <div><span>Tags</span>0</div>
         <div><span>Categories</span>0</div>
     </div>
@@ -153,7 +153,7 @@
   
   <div class="nexmoe-post-meta" style="margin:10px 0!important;">
     <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
-    <a><i class="nexmoefont icon-areachart"></i>807 字</a>
+    <a><i class="nexmoefont icon-areachart"></i>788 字</a>
     <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
 </div>
 
@@ -162,7 +162,7 @@
       <div class="nexmoe-fixed">
         <div class="nexmoe-valign">
             <div class="nexmoe-toc">
-                
+                <ol class="toc"><li class="toc-item toc-level-3"><a class="toc-link" href="#本文将简单介绍如何使用宝塔搭建sspanel"><span class="toc-number">1.</span> <span class="toc-text">本文将简单介绍如何使用宝塔搭建sspanel</span></a><ol class="toc-child"><li class="toc-item toc-level-5"><a class="toc-link" href="#准备清单"><span class="toc-number">1.0.1.</span> <span class="toc-text">准备清单</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#1-准备工作"><span class="toc-number">1.0.2.</span> <span class="toc-text">1.准备工作</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#安装LNMP"><span class="toc-number">1.0.3.</span> <span class="toc-text">安装LNMP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#配置PHP"><span class="toc-number">1.0.4.</span> <span class="toc-text">配置PHP</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#4-创建网页"><span class="toc-number">1.0.5.</span> <span class="toc-text">4.创建网页</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#6-创建管理员，同步用户"><span class="toc-number">1.0.6.</span> <span class="toc-text">6.创建管理员，同步用户</span></a></li><li class="toc-item toc-level-5"><a class="toc-link" href="#7-配置定时任务"><span class="toc-number">1.0.7.</span> <span class="toc-text">7.配置定时任务</span></a></li></ol></li></ol></li></ol>
             </div>
         </div>
       </div>
@@ -170,40 +170,26 @@
   </div>
 
   <article>
-    <p>title: sspanel v3 UIM前端部署</p>
-<p>date: 2020/02/02</p>
-<p>categories:</p>
-<ul>
-<li>Tutorials</li>
-</ul>
-<p>tags:</p>
-<ul>
-<li>sspanel</li>
-<li>前端</li>
-<li>VPS</li>
-</ul>
-<p>###本文将简单介绍如何使用宝塔搭建sspanel</p>
-<p>###准备清单</p>
-<ol>
+    <h3 id="本文将简单介绍如何使用宝塔搭建sspanel"><a href="#本文将简单介绍如何使用宝塔搭建sspanel" class="headerlink" title="本文将简单介绍如何使用宝塔搭建sspanel"></a>本文将简单介绍如何使用宝塔搭建sspanel</h3><h5 id="准备清单"><a href="#准备清单" class="headerlink" title="准备清单"></a>准备清单</h5><ol>
 <li>一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7</li>
 <li>SSH工具，Windows推荐Xshell，iOS推荐Termius，Android推荐JuiceSSH</li>
 </ol>
 <p>VPS对新手我只推荐<strong>CloudCone</strong>，因为他家经常搞活动，机器比Vultr家相对稳一些(cloudcone家网站被墙了，需要自备梯子)(<a href="https://app.cloudcone.com/?ref=3831" target="_blank" rel="noopener">点此跳转</a>)</p>
-<p>###1.准备工作<br>升级，安装<strong>curl vim wget unzip git</strong></p>
+<h5 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h5><p>升级，安装<strong>curl vim wget unzip git</strong></p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y curl vim wget unzip git</span><br></pre></td></tr></table></figure>
 <p>设置时区</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
 
-<p>###2.安装宝塔面板</p>
+<p>2.安装宝塔面板</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
 <p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png" alt="TIM截图20200130020514.png" class="lazyload"><br>输入<strong>Y</strong>，回车</p>
 <p>到这里就装好了，复制URL粘贴到浏览器即可，<strong>账号密码务必牢记</strong><del>如果记不住可用在shell里输入bt default找回</del><br><img data-sizes="auto" data-src="https://blog.anank.ke/usr/uploads/2019/09/1898578653.png" alt="" class="lazyload"></p>
 <p>###3.配置宝塔<br>点击勾选进入宝塔面板<br><img data-sizes="auto" data-src="https://blog.anank.ke/usr/uploads/2019/09/60998457.png" alt="" class="lazyload"></p>
-<p>#####安装LNMP<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1103721618.png" alt="TIM截图20200130020819.png" class="lazyload"></p>
+<h5 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h5><p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1103721618.png" alt="TIM截图20200130020819.png" class="lazyload"></p>
 <p>推荐配置</p>
 <figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Nginx 1.16</span><br><span class="line">- MySQL 5.6</span><br><span class="line">- PHP 7.2</span><br><span class="line">- phpMyAdmin 4.7(可选)</span><br></pre></td></tr></table></figure>
 <p>版本过高或者过低对机器都没好处<br>默认已勾选<strong>极速安装</strong>，点击安装等待完成</p>
-<p>####配置PHP<br>软件商店找到PHP，点击设置</p>
+<h5 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h5><p>软件商店找到PHP，点击设置</p>
 <ul>
 <li>单击配置修改，将<strong>display_errors</strong>选项改为关闭</li>
 </ul>
@@ -212,7 +198,7 @@
 <li>单击禁用函数选项，删除<code>system proc_open proc_get_status putenv</code> <del>有可能没有proc_get_status,不用管</del></li>
 <li>单击性能调整，将运行模式改为静态<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1531595587.png" alt="TIM截图20200130021917.png" class="lazyload"><br>配置低的VPS，请通过swap虚拟内存解决性能问题，可参考<a href="https://i.kurumi.ink/2019/06/19/6/" target="_blank" rel="noopener">这篇文章</a></li>
 </ul>
-<p>###4.创建网页<br>宝塔面板中单击<strong>网站</strong>，单击<strong>添加网站</strong>，按如图配置<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1743077220.png" alt="TIM截图20200131012715.png" class="lazyload"></p>
+<h5 id="4-创建网页"><a href="#4-创建网页" class="headerlink" title="4.创建网页"></a>4.创建网页</h5><p>宝塔面板中单击<strong>网站</strong>，单击<strong>添加网站</strong>，按如图配置<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1743077220.png" alt="TIM截图20200131012715.png" class="lazyload"></p>
 <p>###5.安装网页</p>
 <ul>
 <li>在shell中执行</li>
@@ -238,12 +224,12 @@
 <li>更改网站配置文件<br>单击<strong>文件</strong>，进入<strong>config</strong>，将<code>.config.example.php</code>改为<code>.config.php</code>，并单击<strong>编辑</strong>进入<br>箭头所指处是你需要修改的地方，数据库名，用户，密码应与之前设置的一致<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1161970108.png" alt="TIM截图20200130022837.png" class="lazyload"></li>
 </ul>
 <p>单击<strong>保存</strong><br>至此，你的网站就能输入域名访问了<del>，但是还不能用</del></p>
-<p>###6.创建管理员，同步用户<br>shell中执行以下命令</p>
+<h5 id="6-创建管理员，同步用户"><a href="#6-创建管理员，同步用户" class="headerlink" title="6.创建管理员，同步用户"></a>6.创建管理员，同步用户</h5><p>shell中执行以下命令</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">php xcat createAdmin</span><br><span class="line">php xcat syncusers</span><br><span class="line">php xcat initQQWry</span><br><span class="line">php xcat resetTraffic</span><br><span class="line">php xcat initdownload</span><br></pre></td></tr></table></figure>
 
-<p>###7.配置定时任务<br>shell中输入<code>crontab -e</code>,添加以下</p>
+<h5 id="7-配置定时任务"><a href="#7-配置定时任务" class="headerlink" title="7.配置定时任务"></a>7.配置定时任务</h5><p>shell中输入<code>crontab -e</code>,添加以下</p>
 <figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">30 22 * * * php /www/wwwroot/你的文件夹名/xcat sendDiaryMail</span><br><span class="line">0 0 * * * php -n /www/wwwroot/你的文件夹名/xcat dailyjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat checkjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat syncnode</span><br></pre></td></tr></table></figure>
-<p>###至此sspanel-v3-UIM(前端)搭建完成</p>
+<p>至此sspanel-v3-UIM(前端)搭建完成</p>
 
   </article>
 
@@ -287,7 +273,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1583805633770"></script>-->
+<!--<script src="/js/app.js?v=1583806761988"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
