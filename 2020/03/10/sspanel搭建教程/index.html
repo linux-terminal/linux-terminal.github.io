@@ -1,0 +1,305 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+
+<head>
+  
+  <title>sspanel搭建教程 - 云九博客</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="title: sspanel v3 UIM前端部署 date: 2020&#x2F;02&#x2F;02 categories:  Tutorials  tags:  sspanel 前端 VPS  ###本文将简单介绍如何使用宝塔搭建sspanel ###准备清单  一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7 SSH工具，Windows推荐Xshell，iOS推荐Termius，And">
+<meta property="og:type" content="article">
+<meta property="og:title" content="sspanel搭建教程">
+<meta property="og:url" content="https://yun9.xyz/2020/03/10/sspanel%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="云九博客">
+<meta property="og:description" content="title: sspanel v3 UIM前端部署 date: 2020&#x2F;02&#x2F;02 categories:  Tutorials  tags:  sspanel 前端 VPS  ###本文将简单介绍如何使用宝塔搭建sspanel ###准备清单  一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7 SSH工具，Windows推荐Xshell，iOS推荐Termius，And">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png">
+<meta property="og:image" content="https://blog.anank.ke/usr/uploads/2019/09/1898578653.png">
+<meta property="og:image" content="https://blog.anank.ke/usr/uploads/2019/09/60998457.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/1103721618.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/6789321.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/1531595587.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/1743077220.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/729031470.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/73544947.png">
+<meta property="og:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/1161970108.png">
+<meta property="article:published_time" content="2020-03-10T00:30:17.250Z">
+<meta property="article:modified_time" content="2020-03-10T00:35:09.855Z">
+<meta property="article:author" content="George Steven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583805633767">-->
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="George Steven" class="mdui-btn mdui-btn-icon"><img src="https://res.cloudinary.com/linux-terminal/image/upload/v1583799681/blog-img/2fc3d46c376abae.jpg_vyl2jl.png" alt="George Steven"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="George Steven">
+            <img src="https://res.cloudinary.com/linux-terminal/image/upload/v1583799681/blog-img/2fc3d46c376abae.jpg_vyl2jl.png" alt="George Steven" alt="George Steven">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>2</div>
+        <div><span>Tags</span>0</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="https://yun9.xyz" title="云九加速器">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                云九加速器
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="https://store.yun9.xyz" target="_blank" rel="noopener" title="云九商城">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                云九商城
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=site:nexmoe.com" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Social</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://twitter.com/Linux__Terminal" target="_blank" mdui-tooltip="{content: 'Twitter'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://github.com/linux-terminal" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 George Steven
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="sspanel搭建教程" class="lazyload">
+          <h1>sspanel搭建教程</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
+    <a><i class="nexmoefont icon-areachart"></i>807 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 3 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign">
+            <div class="nexmoe-toc">
+                
+            </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <article>
+    <p>title: sspanel v3 UIM前端部署</p>
+<p>date: 2020/02/02</p>
+<p>categories:</p>
+<ul>
+<li>Tutorials</li>
+</ul>
+<p>tags:</p>
+<ul>
+<li>sspanel</li>
+<li>前端</li>
+<li>VPS</li>
+</ul>
+<p>###本文将简单介绍如何使用宝塔搭建sspanel</p>
+<p>###准备清单</p>
+<ol>
+<li>一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7</li>
+<li>SSH工具，Windows推荐Xshell，iOS推荐Termius，Android推荐JuiceSSH</li>
+</ol>
+<p>VPS对新手我只推荐<strong>CloudCone</strong>，因为他家经常搞活动，机器比Vultr家相对稳一些(cloudcone家网站被墙了，需要自备梯子)(<a href="https://app.cloudcone.com/?ref=3831" target="_blank" rel="noopener">点此跳转</a>)</p>
+<p>###1.准备工作<br>升级，安装<strong>curl vim wget unzip git</strong></p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y curl vim wget unzip git</span><br></pre></td></tr></table></figure>
+<p>设置时区</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
+
+<p>###2.安装宝塔面板</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
+<p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png" alt="TIM截图20200130020514.png" class="lazyload"><br>输入<strong>Y</strong>，回车</p>
+<p>到这里就装好了，复制URL粘贴到浏览器即可，<strong>账号密码务必牢记</strong><del>如果记不住可用在shell里输入bt default找回</del><br><img data-sizes="auto" data-src="https://blog.anank.ke/usr/uploads/2019/09/1898578653.png" alt="" class="lazyload"></p>
+<p>###3.配置宝塔<br>点击勾选进入宝塔面板<br><img data-sizes="auto" data-src="https://blog.anank.ke/usr/uploads/2019/09/60998457.png" alt="" class="lazyload"></p>
+<p>#####安装LNMP<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1103721618.png" alt="TIM截图20200130020819.png" class="lazyload"></p>
+<p>推荐配置</p>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Nginx 1.16</span><br><span class="line">- MySQL 5.6</span><br><span class="line">- PHP 7.2</span><br><span class="line">- phpMyAdmin 4.7(可选)</span><br></pre></td></tr></table></figure>
+<p>版本过高或者过低对机器都没好处<br>默认已勾选<strong>极速安装</strong>，点击安装等待完成</p>
+<p>####配置PHP<br>软件商店找到PHP，点击设置</p>
+<ul>
+<li>单击配置修改，将<strong>display_errors</strong>选项改为关闭</li>
+</ul>
+<p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/6789321.png" alt="TIM截图20200130021854.png" class="lazyload"></p>
+<ul>
+<li>单击禁用函数选项，删除<code>system proc_open proc_get_status putenv</code> <del>有可能没有proc_get_status,不用管</del></li>
+<li>单击性能调整，将运行模式改为静态<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1531595587.png" alt="TIM截图20200130021917.png" class="lazyload"><br>配置低的VPS，请通过swap虚拟内存解决性能问题，可参考<a href="https://i.kurumi.ink/2019/06/19/6/" target="_blank" rel="noopener">这篇文章</a></li>
+</ul>
+<p>###4.创建网页<br>宝塔面板中单击<strong>网站</strong>，单击<strong>添加网站</strong>，按如图配置<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1743077220.png" alt="TIM截图20200131012715.png" class="lazyload"></p>
+<p>###5.安装网页</p>
+<ul>
+<li>在shell中执行</li>
+</ul>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /www/wwwroot/你的文件夹名</span><br><span class="line">git clone -b master https://github.com/Anankke/SSPanel-Uim.git tmp &amp;&amp; mv tmp/.git . &amp;&amp; rm -rf tmp &amp;&amp; git reset --hard</span><br><span class="line">git config core.filemode false</span><br><span class="line">wget https://getcomposer.org/installer -O composer.phar</span><br><span class="line">php composer.phar</span><br><span class="line">php composer.phar install</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>回到宝塔，点击网站的<strong>设置</strong></li>
+</ul>
+<p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/729031470.png" alt="TIM截图20200131013156.png" class="lazyload"></p>
+<ul>
+<li>单击<strong>网站目录</strong>关闭<strong>防跨站攻击</strong>，将<strong>运行目录</strong>改为<strong>/public</strong>，并单击<strong>保存</strong></li>
+<li>在<strong>伪静态</strong>添加如下内容并<strong>保存</strong></li>
+</ul>
+<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F; &#123;</span><br><span class="line">    try_files $uri &#x2F;index.php$is_args$args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
+
+<ul>
+<li>更改网站文件夹权限<br>回到shell，输入<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 755 ../你的文件夹名/</span><br><span class="line">chown -R www:www ../你的文件夹名/</span><br></pre></td></tr></table></figure></li>
+<li>将数据库link到备份文件夹<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /www/wwwroot/你的文件夹名/sql/glzjin_all.sql /www/backup/database/</span><br></pre></td></tr></table></figure></li>
+<li>导入数据库<br>回到宝塔，单击<strong>数据库</strong>按钮，点击导入<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/73544947.png" alt="TIM截图20200130023352.png" class="lazyload"></li>
+</ul>
+<ul>
+<li>更改网站配置文件<br>单击<strong>文件</strong>，进入<strong>config</strong>，将<code>.config.example.php</code>改为<code>.config.php</code>，并单击<strong>编辑</strong>进入<br>箭头所指处是你需要修改的地方，数据库名，用户，密码应与之前设置的一致<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1161970108.png" alt="TIM截图20200130022837.png" class="lazyload"></li>
+</ul>
+<p>单击<strong>保存</strong><br>至此，你的网站就能输入域名访问了<del>，但是还不能用</del></p>
+<p>###6.创建管理员，同步用户<br>shell中执行以下命令</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">php xcat createAdmin</span><br><span class="line">php xcat syncusers</span><br><span class="line">php xcat initQQWry</span><br><span class="line">php xcat resetTraffic</span><br><span class="line">php xcat initdownload</span><br></pre></td></tr></table></figure>
+
+<p>###7.配置定时任务<br>shell中输入<code>crontab -e</code>,添加以下</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">30 22 * * * php /www/wwwroot/你的文件夹名/xcat sendDiaryMail</span><br><span class="line">0 0 * * * php -n /www/wwwroot/你的文件夹名/xcat dailyjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat checkjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat syncnode</span><br></pre></td></tr></table></figure>
+<p>###至此sspanel-v3-UIM(前端)搭建完成</p>
+
+  </article>
+
+  <div class="nexmoe-post-meta">
+    
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>George Steven<br>
+    <strong>Link：</strong><a href="https://yun9.xyz/2020/03/10/sspanel%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/" title="https:&#x2F;&#x2F;yun9.xyz&#x2F;2020&#x2F;03&#x2F;10&#x2F;sspanel%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;yun9.xyz&#x2F;2020&#x2F;03&#x2F;10&#x2F;sspanel%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
+<div id="gitalk"></div>
+<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
+<script type="text/javascript">
+    var gitalk = new Gitalk({
+        clientID: '80b2453b6d5f37ad6225',
+        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
+        id: window.location.pathname,
+        repo: 'nexmoe.github.io',
+        owner: 'nexmoe',
+        admin: 'nexmoe'
+    })
+    gitalk.render('gitalk')
+</script>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="/js/app.js?v=1583805633770"></script>-->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>
