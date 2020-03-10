@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1583825010503">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583849624914">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -47,7 +47,7 @@
         </a>
     </div>
     <div class="nexmoe-count">
-        <div><span>Articles</span>6</div>
+        <div><span>Articles</span>7</div>
         <div><span>Tags</span>0</div>
         <div><span>Categories</span>0</div>
     </div>
@@ -129,6 +129,53 @@
   <div id="nexmoe-content">
     <div class="nexmoe-primary">
         <section class="nexmoe-posts">
+    
+    <div class="nexmoe-post">
+        <a href="/2020/03/10/zfaka%E5%B9%B3%E5%8F%B0%E5%BF%AB%E9%80%9F%E6%90%AD%E5%BB%BA%E6%95%99%E7%A8%8B/">
+            
+                <div class="nexmoe-post-cover mdui-ripple" style="padding-bottom: 66.66666666666666%;"> 
+                    <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="zfaka平台快速搭建教程" class="lazyload">
+                    <h1>zfaka平台快速搭建教程</h1>
+                </div>
+            
+        </a>
+
+        <div class="nexmoe-post-meta">
+            <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
+            <a><i class="nexmoefont icon-areachart"></i>492 字</a>
+            <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+        </div>
+
+        <article>
+            
+                <h4 id="1、准备"><a href="#1、准备" class="headerlink" title="1、准备"></a>1、准备</h4><p>centos7系统的vps一台</p>
+<h4 id="2、搭建宝塔面板"><a href="#2、搭建宝塔面板" class="headerlink" title="2、搭建宝塔面板"></a>2、搭建宝塔面板</h4><p>复制以下内容到服务器执行</p>
+<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure>
+
+<p>安装宝塔面板完成以后进去选 安装lnmp环境，php选择7.1<br>然后创建个网站。记住mysql的名字和密码一会儿要用。</p>
+<h4 id="3、执行一键安装"><a href="#3、执行一键安装" class="headerlink" title="3、执行一键安装"></a>3、执行一键安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/lizhongnian/ZFaka-Onekey-ForBT/master/ZFaka-Onekey-ForBT-Install.sh &amp;&amp;</span><br><span class="line">chmod +x ZFaka-Onekey-ForBT-Install.sh &amp;&amp;</span><br><span class="line">bash ZFaka-Onekey-ForBT-Install.sh</span><br></pre></td></tr></table></figure>
+
+<p>执行途中会输入网站目录，mysql的用户名密码以及库名，确认信息后按1继续安装，等待一小会即可安装成功,安装成功后会提示<br>按照提示信息登录后台修改操作了。</p>
+<h3 id="对接当面付"><a href="#对接当面付" class="headerlink" title="对接当面付"></a>对接当面付</h3><h4 id="外围工作"><a href="#外围工作" class="headerlink" title="外围工作"></a>外围工作</h4><p>进后台先改一下网址<br>具体在这里</p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/1.png" alt="" class="lazyload"></p>
+<p>修改成自己的域名。<br>然后支付宝创建应用</p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/3.png" alt="" class="lazyload"></p>
+<p>网址要跟上面的网址一样<br>下面的三个圈圈<br>第一个圈圈跟圈圈上面那个一样<br>第二个是授权回调<br>这个在我们的后台<br>设置中心-支付设置</p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/4.png" alt="" class="lazyload"></p>
+<p>支付宝开放平台中生成密钥</p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/2.png" alt="" class="lazyload"></p>
+<p>这样生成一个，，<br>把商户应用私钥复制到下面图片的最下面那个框框。</p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/4.png" alt="" class="lazyload"></p>
+<p>把商户公钥复制到支付宝应用里面会出来一个支付宝公钥复制到<br><a href="https://dongfangmu.github.io/2020/01/15/zfaka发卡平台完整搭建/4.png" target="_blank" rel="noopener">  </a></p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/4.png" alt="" class="lazyload"></p>
+<p>这个图中间的框框里面。<br>然后把id对应一下复制过来。<br>支付宝写成上图那样就可以了。以我为准。<br>网站下面这样选</p>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/5.png" alt="" class="lazyload"></p>
+<p>然后确定</p>
+<h3 id="注意，域名"><a href="#注意，域名" class="headerlink" title="注意，域名"></a>注意，域名</h3><p>1、最开始你执行脚本输入的域名<br>2、宝塔创建网站的域名<br>3、发卡后端修改的域名<br>4、支付宝应用填写的域名<br>这四个域名一定要一致！！！</p>
+<h2 id="脚本来自七彩blog，本文作者为-东方木"><a href="#脚本来自七彩blog，本文作者为-东方木" class="headerlink" title="脚本来自七彩blog，本文作者为@东方木"></a>脚本来自七彩blog，本文作者为@东方木</h2>
+            
+        </article>
+    </div>
     
     <div class="nexmoe-post">
         <a href="/2020/03/10/v2ray%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/">
@@ -439,7 +486,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1583825010504"></script>-->
+<!--<script src="/js/app.js?v=1583849624915"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
