@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+
+<html lang="zh-cn">
+
+<head>
+  
+  <title>v2ray使用教程 - 云九博客</title>
+  <meta charset="UTF-8">
+  <meta name="description" content="">
+  <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=5">
+  
+  
+
+  <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
+  <meta name="description" content="本教程将介绍各平台如何订阅并使用v2ray云九加速器官网 yun9.xyz未经许可禁止转载  iOS登录云九官网，打开侧边栏-共享账号，找到公用美区id打开apple store，点击右上角的人头，退登自己的id之后登陆公用ID，下载shadowrocket后重新登回自己ID在网站用户首页底部找到v2ray订阅链接，点击复制 打开shadowrocket，点击右上角加号 类型选择subscribe">
+<meta property="og:type" content="article">
+<meta property="og:title" content="v2ray使用教程">
+<meta property="og:url" content="https://yun9.xyz/2020/03/10/v2ray%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/index.html">
+<meta property="og:site_name" content="云九博客">
+<meta property="og:description" content="本教程将介绍各平台如何订阅并使用v2ray云九加速器官网 yun9.xyz未经许可禁止转载  iOS登录云九官网，打开侧边栏-共享账号，找到公用美区id打开apple store，点击右上角的人头，退登自己的id之后登陆公用ID，下载shadowrocket后重新登回自己ID在网站用户首页底部找到v2ray订阅链接，点击复制 打开shadowrocket，点击右上角加号 类型选择subscribe">
+<meta property="og:locale" content="zh_CN">
+<meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2914663442.jpeg">
+<meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/1399292389.jpeg">
+<meta property="og:image" content="https://res.cloudinary.com/linux-terminal/image/upload/v1583823900/tutorial/img_0226_qixndf.png">
+<meta property="og:image" content="https://res.cloudinary.com/linux-terminal/image/upload/v1583824188/tutorial/TIM%E5%9B%BE%E7%89%8720200310150916_mp1cdx.png">
+<meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2914663442.jpeg">
+<meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2961472174.jpg">
+<meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/03/1397506320.jpg">
+<meta property="og:image" content="https://dongfangmu.github.io/2019/09/10/%E6%9C%BA%E5%9C%BA%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/w4.png">
+<meta property="og:image" content="https://dongfangmu.github.io/2019/09/10/%E6%9C%BA%E5%9C%BA%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/w4.png">
+<meta property="article:published_time" content="2020-03-10T06:16:34.271Z">
+<meta property="article:modified_time" content="2020-03-10T07:10:06.963Z">
+<meta property="article:author" content="George Steven">
+<meta name="twitter:card" content="summary">
+<meta name="twitter:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2914663442.jpeg">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
+  
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583924507603">-->
+
+  
+<meta name="generator" content="Hexo 4.2.0"></head>
+
+<body class="mdui-drawer-body-left">
+  
+  <div id="nexmoe-background">
+    <div class="nexmoe-bg" style="background-image: url(https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg)"></div>
+    <div class="mdui-appbar mdui-shadow-0">
+      <div class="mdui-toolbar">
+        <a mdui-drawer="{target: '#drawer', swipe: true}" title="menu" class="mdui-btn mdui-btn-icon mdui-ripple"><i class="mdui-icon nexmoefont icon-menu"></i></a>
+        <div class="mdui-toolbar-spacer"></div>
+        <!--<a href="javascript:;" class="mdui-btn mdui-btn-icon"><i class="mdui-icon material-icons">search</i></a>-->
+        <a href="/" title="George Steven" class="mdui-btn mdui-btn-icon"><img src="https://res.cloudinary.com/linux-terminal/image/upload/v1583799681/blog-img/2fc3d46c376abae.jpg_vyl2jl.png" alt="George Steven"></a>
+       </div>
+    </div>
+  </div>
+  <div id="nexmoe-header">
+      <div class="nexmoe-drawer mdui-drawer" id="drawer">
+    <div class="nexmoe-avatar mdui-ripple">
+        <a href="/" title="George Steven">
+            <img src="https://res.cloudinary.com/linux-terminal/image/upload/v1583799681/blog-img/2fc3d46c376abae.jpg_vyl2jl.png" alt="George Steven" alt="George Steven">
+        </a>
+    </div>
+    <div class="nexmoe-count">
+        <div><span>Articles</span>7</div>
+        <div><span>Tags</span>0</div>
+        <div><span>Categories</span>0</div>
+    </div>
+    <div class="nexmoe-list mdui-list" mdui-collapse="{accordion: true}">
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/" title="回到首页">
+            <i class="mdui-list-item-icon nexmoefont icon-home"></i>
+            <div class="mdui-list-item-content">
+                回到首页
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="/about.html" title="关于博客">
+            <i class="mdui-list-item-icon nexmoefont icon-info-circle"></i>
+            <div class="mdui-list-item-content">
+                关于博客
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="https://yun9.xyz" title="云九加速器">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                云九加速器
+            </div>
+        </a>
+        
+        <a class="nexmoe-list-item mdui-list-item mdui-ripple" href="https://store.yun9.xyz" target="_blank" rel="noopener" title="云九商城">
+            <i class="mdui-list-item-icon nexmoefont icon-unorderedlist"></i>
+            <div class="mdui-list-item-content">
+                云九商城
+            </div>
+        </a>
+        
+    </div>
+    <aside id="nexmoe-sidebar">
+  
+  <div class="nexmoe-widget-wrap">
+    <div class="nexmoe-widget nexmoe-search">
+        <form id="search_form" action_e="https://cn.bing.com/search?q=blog.yun9.xyz" onsubmit="return search();">
+            <label><input id="search_value" name="q" type="search" placeholder="Search"></label>
+        </form>
+    </div>
+</div>
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Social</h3>
+    <div class="nexmoe-widget nexmoe-social">
+        <a class="mdui-ripple" href="https://twitter.com/Linux__Terminal" target="_blank" mdui-tooltip="{content: 'Twitter'}" style="color: rgb(231, 106, 141);background-color: rgba(231, 106, 141, .15);">
+            <i class="nexmoefont icon-twitter"></i>
+        </a><a class="mdui-ripple" href="https://github.com/linux-terminal" target="_blank" mdui-tooltip="{content: 'GitHub'}" style="color: rgb(25, 23, 23);background-color: rgba(25, 23, 23, .15);">
+            <i class="nexmoefont icon-github"></i>
+        </a>
+    </div>
+</div>
+  
+  
+
+  
+  
+  
+  
+  <div class="nexmoe-widget-wrap">
+    <h3 class="nexmoe-widget-title">Archive</h3>
+    <div class="nexmoe-widget">
+      <ul class="archive-list"><li class="archive-list-item"><a class="archive-list-link" href="/archives/2020/03/">三月 2020</a></li></ul>
+    </div>
+  </div>
+
+
+  
+</aside>
+    <div class="nexmoe-copyright">
+        &copy; 2020 George Steven
+        Powered by <a href="http://hexo.io/" target="_blank">Hexo</a>
+        & <a href="https://nexmoe.com/hexo-theme-nexmoe.html" target="_blank">Nexmoe</a>
+    </div>
+</div><!-- .nexmoe-drawer -->
+  </div>
+  <div id="nexmoe-content">
+    <div class="nexmoe-primary">
+        <div class="nexmoe-post">
+  
+      <div class="nexmoe-post-cover" style="padding-bottom: 66.66666666666666%;"> 
+          <img data-src="https://cdn.jsdelivr.net/gh/nexmoe/nexmoe.github.io@latest/images/cover/5c3aec85a4343.jpg" data-sizes="auto" alt="v2ray使用教程" class="lazyload">
+          <h1>v2ray使用教程</h1>
+      </div>
+  
+  
+  <div class="nexmoe-post-meta" style="margin:10px 0!important;">
+    <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
+    <a><i class="nexmoefont icon-areachart"></i>597 字</a>
+    <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
+</div>
+
+  <div class="nexmoe-post-right">
+    
+      <div class="nexmoe-fixed">
+        <div class="nexmoe-valign">
+            <div class="nexmoe-toc">
+                <ol class="toc"><li class="toc-item toc-level-4"><a class="toc-link" href="#本教程将介绍各平台如何订阅并使用v2ray"><span class="toc-number">1.</span> <span class="toc-text">本教程将介绍各平台如何订阅并使用v2ray</span></a></li><li class="toc-item toc-level-4"><a class="toc-link" href="#云九加速器官网-yun9-xyz"><span class="toc-number">2.</span> <span class="toc-text">云九加速器官网 yun9.xyz</span></a></li></ol></li><li class="toc-item toc-level-3"><a class="toc-link" href="#iOS"><span class="toc-number"></span> <span class="toc-text">iOS</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Android"><span class="toc-number"></span> <span class="toc-text">Android</span></a></li><li class="toc-item toc-level-3"><a class="toc-link" href="#Windows"><span class="toc-number"></span> <span class="toc-text">Windows</span></a>
+            </div>
+        </div>
+      </div>
+    
+  </div>
+
+  <article>
+    <h4 id="本教程将介绍各平台如何订阅并使用v2ray"><a href="#本教程将介绍各平台如何订阅并使用v2ray" class="headerlink" title="本教程将介绍各平台如何订阅并使用v2ray"></a>本教程将介绍各平台如何订阅并使用v2ray</h4><h4 id="云九加速器官网-yun9-xyz"><a href="#云九加速器官网-yun9-xyz" class="headerlink" title="云九加速器官网 yun9.xyz"></a>云九加速器官网 <a href="https://yun9.xyz">yun9.xyz</a></h4><p>未经许可禁止转载</p>
+<hr>
+<h3 id="iOS"><a href="#iOS" class="headerlink" title="iOS"></a>iOS</h3><p>登录云九官网，打开侧边栏-共享账号，找到公用美区id<br>打开apple store，点击右上角的人头，退登自己的id之后登陆公用ID，下载<strong>shadowrocket</strong>后重新登回自己ID<br>在网站用户首页底部找到<strong>v2ray订阅链接</strong>，点击复制<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/2914663442.jpeg" alt="BD4D261C-3607-4B5F-B1A5-C03F0D83BED3.jpeg" class="lazyload"></p>
+<p>打开<strong>shadowrocket</strong>，点击右上角加号<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1399292389.jpeg" alt="94412D66-5D3D-43A4-94D6-81552EB0A42E.jpeg" class="lazyload"></p>
+<p>类型选择<strong>subscribe</strong><br><img data-sizes="auto" data-src="https://res.cloudinary.com/linux-terminal/image/upload/v1583823900/tutorial/img_0226_qixndf.png" alt="2C729012-DAE6-4A4A-836D-0343FCD7948C.jpeg" class="lazyload"></p>
+<p>URL处粘贴复制的链接，备注填写云九加速器，点击完成等待更新<br><img data-sizes="auto" data-src="https://res.cloudinary.com/linux-terminal/image/upload/v1583824188/tutorial/TIM%E5%9B%BE%E7%89%8720200310150916_mp1cdx.png" alt="rename.png" class="lazyload"></p>
+<p><strong>建议勾选shadowrocket-设置-服务器订阅-打开时更新，以便获取实时的更新</strong></p>
+<hr>
+<h3 id="Android"><a href="#Android" class="headerlink" title="Android"></a>Android</h3><p>首先下载安装客户端 <a href="https://www.lanzous.com/ia44hte" target="_blank" rel="noopener">点此下载</a></p>
+<blockquote>
+<p>安卓端若Chrome出现无法下载，请复制下载链接并使用其他浏览器下载</p>
+</blockquote>
+<p>打开云九加速器官网，复制订阅链接<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/2914663442.jpeg" alt="BD4D261C-3607-4B5F-B1A5-C03F0D83BED3.jpeg" class="lazyload"></p>
+<p>打开v2ray ng客户端，打开订阅设置<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/2961472174.jpg" alt="IMG20200209184220.jpg" class="lazyload"></p>
+<p>URL处粘贴订阅链接，备注填写<strong>云九加速器</strong><br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/03/1397506320.jpg" alt="qq_pic_merged_1582854599816.jpg" class="lazyload"><br>点击勾，等待更新完成</p>
+<p><strong>每次打开v2ray时建议点击右上角三个点-更新订阅，以便保持节点订阅是最新的</strong></p>
+<hr>
+<h3 id="Windows"><a href="#Windows" class="headerlink" title="Windows"></a>Windows</h3><p><a href="https://www.lanzous.com/ia44hoj" target="_blank" rel="noopener">客户端下载地址</a><br>把下载的压缩包放在桌面并解压，双击其中的<strong>v2rayN.exe</strong>（目前只支持64位和Windows7+的系统）<br>屏幕右下角找到v2ray的图标，双击打开</p>
+<blockquote>
+<p>如果发现打不开，可能是缺少运行环境.NET FRAMEWORK，<a href="https://www.microsoft.com/zh-cn/download/details.aspx?id=17718" target="_blank" rel="noopener">下载链接</a>，下载后安装</p>
+</blockquote>
+<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2019/09/10/%E6%9C%BA%E5%9C%BA%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/w4.png" alt="请输入图片描述" class="lazyload"></p>
+<p>第一步打开软件点击订阅</p>
+<p>点击订阅设置</p>
+<p>点击添加把刚才复制的连接粘贴进去<br>点击完成<br>然后返回到主界面</p>
+<p>订阅-更新订阅。选择你需要的节点。右击设为活动服务器。<br>（订阅时如果勾选了http代理会造成订阅失败）<br>然后再电脑右下角找到软件图标<br><img data-sizes="auto" data-src="https://dongfangmu.github.io/2019/09/10/%E6%9C%BA%E5%9C%BA%E4%BD%BF%E7%94%A8%E6%96%B9%E6%B3%95/w4.png" alt="请输入图片描述" class="lazyload"></p>
+<p>右击。勾选【启用http代理】，【http代理模式自行选择】<br>不需要使用时，可以右击工具栏的v2ray图标并选择退出，或者取消http代理以关闭代理<br><strong>建议每次使用前双击v2ray图标，点击订阅-更新订阅以保持订阅是最新的（不要开http代理）</strong></p>
+<blockquote>
+<p>本教程最后编辑于2020年2月9日，任何问题请加云九加速器QQ群</p>
+</blockquote>
+
+  </article>
+
+  <div class="nexmoe-post-meta">
+    
+    
+</div>
+
+  <div class="nexmoe-post-footer">
+    
+      
+  <div class="nexmoe-post-copyright">
+    <strong>Author：</strong>George Steven<br>
+    <strong>Link：</strong><a href="https://yun9.xyz/2020/03/10/v2ray%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B/" title="https:&#x2F;&#x2F;yun9.xyz&#x2F;2020&#x2F;03&#x2F;10&#x2F;v2ray%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B&#x2F;" target="_blank" rel="noopener">https:&#x2F;&#x2F;yun9.xyz&#x2F;2020&#x2F;03&#x2F;10&#x2F;v2ray%E4%BD%BF%E7%94%A8%E6%95%99%E7%A8%8B&#x2F;</a><br>
+    
+      <strong>版权声明：</strong>本文采用 <a href="https://creativecommons.org/licenses/by-nc-sa/3.0/cn/deed.zh" target="_blank">CC BY-NC-SA 3.0 CN</a> 协议进行许可
+    
+  </div>
+
+
+    
+    <section class="nexmoe-comment">
+    <div id="lv-container" data-id="city" data-uid="MTAyMC80OTA0Mi8yNTUzNw==">
+    <script id="livere-comment-js">
+    (function(d, s) {
+       var j, e = d.getElementsByTagName(s)[0];
+       if (typeof LivereTower === 'function') { return; }
+       j = d.createElement(s);
+       j.src = 'https://cdn-city.livere.com/js/embed.dist.js';
+       j.async = true;
+       e.parentNode.insertBefore(j, e);
+    })(document, 'script');
+    </script>
+</div>
+</section>
+  </div>
+</div>
+    </div>
+  </div>
+  <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
+<script>hljs.initHighlightingOnLoad();</script>
+<!--<script src="/js/app.js?v=1583924507605"></script>-->
+
+
+    <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
+
+
+
+  
+
+
+
+
+
+</body>
+
+</html>
