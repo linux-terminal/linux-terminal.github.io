@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1583913051481">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583913438428">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -247,41 +247,7 @@
 
         <article>
             
-                <a id="more"></a>
-
-<blockquote>
-<p>一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。</p>
-</blockquote>
-<h5 id="1-国内中转节点的选择"><a href="#1-国内中转节点的选择" class="headerlink" title="1.国内中转节点的选择"></a>1.国内中转节点的选择</h5><p>国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。<br>一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，这样子用户-中转和中转-节点的延迟都会大大降低，提高体验质量。<br>作为小机场主（迫真），买不起国内vds，只能买一台nat作为中转。<br>这里推荐OLVPS，他家的泉州nat性价比挺高的。<br><a href="https://olvps.com/aff.php?aff=436" target="_blank" rel="noopener">注册链接</a> 含AFF</p>
-<h5 id="2-中转机的设置"><a href="#2-中转机的设置" class="headerlink" title="2.中转机的设置"></a>2.中转机的设置</h5><p>登陆中转nat，这里不再赘述。<br>之后需要设置转发规则，这里推荐<strong>iptables</strong>和<strong>brook</strong>两种方式</p>
-<ul>
-<li>iptables<br>一般Linux系统都自带iptables，不需要安装额外的东西。网上的iptables法大多数都需要好几行命令才实现转发，比较繁琐。翻了一下GitHub发现有大佬已经替我们写好iptables脚本了，全程基本无脑操作就可以了。<br>安装脚本并执行（没有wget的需要先安装一下）<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -qO natcfg.sh https://raw.githubusercontent.com/arloor/iptablesUtils/master/natcfg.sh &amp;&amp; bash natcfg.sh</span><br></pre></td></tr></table></figure>
-<img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/2751111723.png" alt="TIM截图20200220075416.png" class="lazyload"></li>
-</ul>
-<p>选择3（如果你的海外节点有域名可以选择1）<br>填入相关信息<br>本地端口就是你nat将要用于中转的端口<br>远程端口就是海外节点的端口<br>目标IP是海外节点的IP<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1516824158.png" alt="TIM截图20200220075508.png" class="lazyload"></p>
-<p>然后就完成了。</p>
-<ul>
-<li>Brook<br>Brook也是一款代理工具，在这里也可以用于流量转发<br>安装<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/ToyoDAdoubiBackup/doubi/master/brook-pf.sh &amp;&amp; chmod +x brook-pf.sh &amp;&amp; bash brook-pf.sh</span><br></pre></td></tr></table></figure>
-下载并运行脚本后，会显示操作菜单，输入 1 并回车就会开始安装。</li>
-</ul>
-<p>运行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">bash brook-pf.sh</span><br></pre></td></tr></table></figure>
-<p>之后会显示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br></pre></td><td class="code"><pre><span class="line">  Brook 端口转发 一键管理脚本 [vX.X.X]</span><br><span class="line">  ---- Toyo | doub.io&#x2F;wlzy-jc37 ----</span><br><span class="line">  </span><br><span class="line">  0. 升级脚本</span><br><span class="line">————————————</span><br><span class="line">  1. 安装 Brook</span><br><span class="line">  2. 升级 Brook</span><br><span class="line">  3. 卸载 Brook</span><br><span class="line">————————————</span><br><span class="line">  4. 启动 Brook</span><br><span class="line">  5. 停止 Brook</span><br><span class="line">  6. 重启 Brook</span><br><span class="line">————————————</span><br><span class="line">  7. 设置 Brook 端口转发</span><br><span class="line">  8. 查看 Brook 端口转发</span><br><span class="line">  9. 查看 Brook 日志</span><br><span class="line"> 10. 监控 Brook 运行状态</span><br><span class="line">————————————</span><br><span class="line"> </span><br><span class="line"> 当前状态: 已安装 但 未启动</span><br><span class="line"> </span><br><span class="line"> 请输入数字 [0-10]:</span><br></pre></td></tr></table></figure>
-<p>输入<strong>7</strong>进入设置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br></pre></td><td class="code"><pre><span class="line">你要做什么？</span><br><span class="line"> 1.  添加 端口转发</span><br><span class="line"> 2.  删除 端口转发</span><br><span class="line"> 3.  修改 端口转发</span><br><span class="line"> 4.  启用&#x2F;禁用 端口转发</span><br><span class="line"> </span><br><span class="line"> [注意] 本地监听端口不能重复，被转发的IP或端口可重复!</span><br><span class="line">(默认: 取消)</span><br></pre></td></tr></table></figure>
-<p>输入<strong>1</strong>添加转发规则</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br><span class="line">11</span><br><span class="line">12</span><br><span class="line">13</span><br><span class="line">14</span><br><span class="line">15</span><br><span class="line">16</span><br><span class="line">17</span><br><span class="line">18</span><br><span class="line">19</span><br><span class="line">20</span><br><span class="line">21</span><br><span class="line">22</span><br><span class="line">23</span><br><span class="line">24</span><br><span class="line">25</span><br><span class="line">26</span><br><span class="line">27</span><br><span class="line">28</span><br><span class="line">29</span><br><span class="line">30</span><br></pre></td><td class="code"><pre><span class="line">请输入 Brook 本地监听端口 [1-65535]（端口不能重复，避免冲突）</span><br><span class="line">(默认取消):2366</span><br><span class="line"> </span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">	本地监听端口 :  2333</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"> </span><br><span class="line">请输入被转发的 IP :</span><br><span class="line">(默认取消):1.1.1.1</span><br><span class="line"> </span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">	被转发IP :  1.1.1.1</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"> </span><br><span class="line">请输入 Brook 被转发的端口 [1-65535]</span><br><span class="line">(默认取消):2366</span><br><span class="line"> </span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line">	被转发端口 :  2366</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br><span class="line"> </span><br><span class="line">立即启用该端口转发，还是禁用？ [Y&#x2F;n]</span><br><span class="line">(默认: Y 启用):</span><br><span class="line">[信息] 端口转发 添加成功 [端口: 2333 被转发IP和端口: 1.1.1.1:2366]</span><br><span class="line"> </span><br><span class="line">是否继续 添加端口转发配置？[Y&#x2F;n]:</span><br><span class="line">[信息] 继续 添加端口转发配置...</span><br><span class="line">...</span><br><span class="line">...</span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-<p>最后启动成功后 就会提示</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">当前端口转发总数:  1  当前服务器IP:  2.2.2.2</span><br><span class="line">本地监听端口: 2333	 被转发IP: 1.1.1.1	 被转发端口:2366	 状态: 启用</span><br><span class="line"> </span><br><span class="line">&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;&#x3D;</span><br></pre></td></tr></table></figure>
-<p>中转机的设置就完成了</p>
-<h5 id="3-前端的设置"><a href="#3-前端的设置" class="headerlink" title="3.前端的设置"></a>3.前端的设置</h5><p>填写节点地址和IP时，按如下格式填写</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">节点IP;节点端口;4;ws;;path&#x3D;&#x2F;v2ray|host&#x3D;download.windowsupdate.com|outside_port&#x3D;中转端口|server&#x3D;中转服务器IP</span><br></pre></td></tr></table></figure>
-<p>一般中间的信息不同机场有不同的参数设定，但是如果要使用中转必须要加上<code>outside_port</code>和<code>server</code>参数来对接中转服务器<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1510340786.png" alt="TIM截图20200220075817.png" class="lazyload"></p>
-<p>之后设定类型为<strong>v2ray中转</strong><br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/2934320395.png" alt="TIM截图20200220075836.png" class="lazyload"></p>
-<h5 id="4-后端对接"><a href="#4-后端对接" class="headerlink" title="4.后端对接"></a>4.后端对接</h5><p>正常对接，不再赘述</p>
-<p>当节点列表中的节点变绿时，就可以使用了。<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/712380390.png" alt="TIM截图20200220080438.png" class="lazyload"></p>
-
+                <p>本文将讲解中转的教程</p>
             
         </article>
     </div>
@@ -298,70 +264,13 @@
 
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>344 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>354 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
         </div>
 
         <article>
             
-                <a id="more"></a>
-
-<blockquote>
-<p>旧站服务器太垃圾了，还用不了v2ray(一键脚本搭的)，正好cloudcone搞活动不如咱换个新的</p>
-</blockquote>
-<table>
-<thead>
-<tr>
-<th>配置</th>
-<th>旧服</th>
-<th>新服</th>
-</tr>
-</thead>
-<tbody><tr>
-<td>内存</td>
-<td>1GB</td>
-<td>2GB</td>
-</tr>
-<tr>
-<td>硬盘</td>
-<td>20GB</td>
-<td>30GB</td>
-</tr>
-<tr>
-<td>核心</td>
-<td>1</td>
-<td>1</td>
-</tr>
-<tr>
-<td>价格</td>
-<td>2$</td>
-<td>2.5$</td>
-</tr>
-<tr>
-<td><del>虽然是活动价，但是30$是真的肉疼</del></td>
-<td></td>
-<td></td>
-</tr>
-<tr>
-<td><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1602786110.png" alt="210RMB肉疼" class="lazyload"></td>
-<td></td>
-<td></td>
-</tr>
-</tbody></table>
-<p>搜了下Google，sspanel迁移的教程挺少，唯一找到的是<a href="https://mrdc.me/2019/10/22/sspanel-migration-server-pagoda/" target="_blank" rel="noopener">这篇</a><br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/3549917599.png" alt="唯一的一篇" class="lazyload"><br>上文作者使用的是宝塔一键迁移，可是问题来了，我旧站的宝塔面板是5.x，ssp也是老版本，所以只能迁移数据库了</p>
-<h5 id="1-首先将旧站的数据库备份，然后下载至本地"><a href="#1-首先将旧站的数据库备份，然后下载至本地" class="headerlink" title="1. 首先将旧站的数据库备份，然后下载至本地"></a>1. 首先将旧站的数据库备份，然后下载至本地</h5><p><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1556959754.png" alt="TIM截图20200201135259.png" class="lazyload"></p>
-<h5 id="2-使用宝塔面板搭建sspanel，教程在此"><a href="#2-使用宝塔面板搭建sspanel，教程在此" class="headerlink" title="2.使用宝塔面板搭建sspanel，教程在此"></a>2.使用宝塔面板搭建sspanel，<a href="https://blog.yun9.xyz/index.php/archives/16/" target="_blank" rel="noopener">教程在此</a></h5><p>到搭建到导入初始数据库时就可用停了，之后上传并导入旧站备份的数据库<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/344611224.png" alt="TIM截图20200201135836.png" class="lazyload"></p>
-<p>之后切到网站根目录，执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">php xcat initdownload</span><br></pre></td></tr></table></figure>
-<p>以及</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">crontab -e</span><br></pre></td></tr></table></figure>
-<p>编辑crontab</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">30 22 * * * php /www/wwwroot/你的文件夹名/xcat sendDiaryMail</span><br><span class="line">0 0 * * * php -n /www/wwwroot/你的文件夹名/xcat dailyjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat checkjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat syncnode</span><br></pre></td></tr></table></figure>
-<p>然后发现无法登陆<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1701679777.png" alt="无法登陆" class="lazyload"></p>
-<p>后来经过我摸索，发现新版本的sspanel中，config文件里改变了密码的加密方式有所变动<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/2285399618.png" alt="TIM截图20200201142025.png" class="lazyload"></p>
-<p>在第282行，将加密方式修改至能登陆即可</p>
-<p>之后就能登陆了，迁站到此结束</p>
-
+                <p>本文将讲解迁站的教程</p>
             
         </article>
     </div>
@@ -418,7 +327,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1583913051482"></script>-->
+<!--<script src="/js/app.js?v=1583913438429"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>

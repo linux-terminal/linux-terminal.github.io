@@ -12,12 +12,12 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <meta name="description" content="一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。  1.国内中转节点的选择国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，">
+  <meta name="description" content="本文将讲解中转的教程">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用iptables和brook进行v2ray中转">
 <meta property="og:url" content="https://yun9.xyz/2020/03/10/%E4%BD%BF%E7%94%A8iptables%E5%92%8Cbrook%E8%BF%9B%E8%A1%8Cv2ray%E4%B8%AD%E8%BD%AC/index.html">
 <meta property="og:site_name" content="云九博客">
-<meta property="og:description" content="一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。  1.国内中转节点的选择国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，">
+<meta property="og:description" content="本文将讲解中转的教程">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2751111723.png">
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/1516824158.png">
@@ -25,13 +25,13 @@
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2934320395.png">
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/712380390.png">
 <meta property="article:published_time" content="2020-03-10T02:13:58.005Z">
-<meta property="article:modified_time" content="2020-03-11T00:09:22.584Z">
+<meta property="article:modified_time" content="2020-03-11T07:54:31.682Z">
 <meta property="article:author" content="George Steven">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2751111723.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1583913051466">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583913438409">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -165,7 +165,8 @@
   </div>
 
   <article>
-    <a id="more"></a>
+    <p>本文将讲解中转的教程</p>
+<a id="more"></a>
 
 <blockquote>
 <p>一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。</p>
@@ -246,7 +247,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1583913051467"></script>-->
+<!--<script src="/js/app.js?v=1583913438410"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
