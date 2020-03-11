@@ -12,12 +12,12 @@
   
 
   <link rel="shortcut icon" href="/favicon.ico" type="image/x-icon" />
-  <meta name="description" content="一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。  1.国内中转节点的选择国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，这样">
+  <meta name="description" content="一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。  1.国内中转节点的选择国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，">
 <meta property="og:type" content="article">
 <meta property="og:title" content="使用iptables和brook进行v2ray中转">
 <meta property="og:url" content="https://yun9.xyz/2020/03/10/%E4%BD%BF%E7%94%A8iptables%E5%92%8Cbrook%E8%BF%9B%E8%A1%8Cv2ray%E4%B8%AD%E8%BD%AC/index.html">
 <meta property="og:site_name" content="云九博客">
-<meta property="og:description" content="一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。  1.国内中转节点的选择国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，这样">
+<meta property="og:description" content="一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。  1.国内中转节点的选择国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，">
 <meta property="og:locale" content="zh_CN">
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2751111723.png">
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/1516824158.png">
@@ -25,13 +25,13 @@
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2934320395.png">
 <meta property="og:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/712380390.png">
 <meta property="article:published_time" content="2020-03-10T02:13:58.005Z">
-<meta property="article:modified_time" content="2020-03-10T02:16:47.107Z">
+<meta property="article:modified_time" content="2020-03-11T00:09:22.584Z">
 <meta property="article:author" content="George Steven">
 <meta name="twitter:card" content="summary">
 <meta name="twitter:image" content="https://blog.yun9.xyz/usr/uploads/2020/02/2751111723.png">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1583849624892">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583885393508">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -165,7 +165,9 @@
   </div>
 
   <article>
-    <blockquote>
+    <a id="more"></a>
+
+<blockquote>
 <p>一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。</p>
 </blockquote>
 <h5 id="1-国内中转节点的选择"><a href="#1-国内中转节点的选择" class="headerlink" title="1.国内中转节点的选择"></a>1.国内中转节点的选择</h5><p>国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。<br>一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，这样子用户-中转和中转-节点的延迟都会大大降低，提高体验质量。<br>作为小机场主（迫真），买不起国内vds，只能买一台nat作为中转。<br>这里推荐OLVPS，他家的泉州nat性价比挺高的。<br><a href="https://olvps.com/aff.php?aff=436" target="_blank" rel="noopener">注册链接</a> 含AFF</p>
@@ -219,20 +221,24 @@
 
     
     <section class="nexmoe-comment">
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.css">
-<div id="gitalk"></div>
-<script src="https://cdn.jsdelivr.net/npm/gitalk@1.5.0/dist/gitalk.min.js"></script>
-<script type="text/javascript">
-    var gitalk = new Gitalk({
-        clientID: '80b2453b6d5f37ad6225',
-        clientSecret: '43e99fa852795c9a7b3eb924b2558c64b84bbdeb',
-        id: window.location.pathname,
-        repo: 'nexmoe.github.io',
-        owner: 'nexmoe',
-        admin: 'nexmoe'
-    })
-    gitalk.render('gitalk')
+    <script id="dsq-count-scr" src="https://blog-yun9-xyz.disqus.com/count.js" async></script>
+<div id="disqus_thread"></div>
+<script>
+    var disqus_config = function () {
+        this.page.url = 'https://yun9.xyz/2020/03/10/%E4%BD%BF%E7%94%A8iptables%E5%92%8Cbrook%E8%BF%9B%E8%A1%8Cv2ray%E4%B8%AD%E8%BD%AC/'; // Replace PAGE_URL with your page's canonical URL variable
+        this.page.identifier = 'https://yun9.xyz/2020/03/10/%E4%BD%BF%E7%94%A8iptables%E5%92%8Cbrook%E8%BF%9B%E8%A1%8Cv2ray%E4%B8%AD%E8%BD%AC/'; // Replace PAGE_IDENTIFIER with your page's unique identifier variable
+    };
 </script>
+<script id="disqus-thread-script">
+    (function() { // DON'T EDIT BELOW THIS LINE
+        var d = document;
+        var s = d.createElement('script');
+        s.src = '//blog-yun9-xyz.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', + new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+
 </section>
   </div>
 </div>
@@ -240,7 +246,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1583849624894"></script>-->
+<!--<script src="/js/app.js?v=1583885393510"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>

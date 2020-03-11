@@ -21,7 +21,7 @@
 <meta name="twitter:card" content="summary">
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/combine/gh/nexmoe/nexmoe.github.io@latest/css/style.css,npm/highlight.js@9.15.8/styles/atom-one-dark.css,gh/nexmoe/nexmoe.github.io@latest/lib/mdui_043tiny/css/mdui.css,gh/nexmoe/nexmoe.github.io@latest/lib/iconfont/iconfont.css" crossorigin>
   
-  <!--<link rel="stylesheet" href="/css/style.css?v=1583849624914">-->
+  <!--<link rel="stylesheet" href="/css/style.css?v=1583885393528">-->
 
   
 <meta name="generator" content="Hexo 4.2.0"></head>
@@ -142,37 +142,13 @@
 
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>492 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>512 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 2 分钟</a>
         </div>
 
         <article>
             
-                <h4 id="1、准备"><a href="#1、准备" class="headerlink" title="1、准备"></a>1、准备</h4><p>centos7系统的vps一台</p>
-<h4 id="2、搭建宝塔面板"><a href="#2、搭建宝塔面板" class="headerlink" title="2、搭建宝塔面板"></a>2、搭建宝塔面板</h4><p>复制以下内容到服务器执行</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; bash install.sh</span><br></pre></td></tr></table></figure>
-
-<p>安装宝塔面板完成以后进去选 安装lnmp环境，php选择7.1<br>然后创建个网站。记住mysql的名字和密码一会儿要用。</p>
-<h4 id="3、执行一键安装"><a href="#3、执行一键安装" class="headerlink" title="3、执行一键安装"></a>3、执行一键安装</h4><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">wget -N --no-check-certificate https://raw.githubusercontent.com/lizhongnian/ZFaka-Onekey-ForBT/master/ZFaka-Onekey-ForBT-Install.sh &amp;&amp;</span><br><span class="line">chmod +x ZFaka-Onekey-ForBT-Install.sh &amp;&amp;</span><br><span class="line">bash ZFaka-Onekey-ForBT-Install.sh</span><br></pre></td></tr></table></figure>
-
-<p>执行途中会输入网站目录，mysql的用户名密码以及库名，确认信息后按1继续安装，等待一小会即可安装成功,安装成功后会提示<br>按照提示信息登录后台修改操作了。</p>
-<h3 id="对接当面付"><a href="#对接当面付" class="headerlink" title="对接当面付"></a>对接当面付</h3><h4 id="外围工作"><a href="#外围工作" class="headerlink" title="外围工作"></a>外围工作</h4><p>进后台先改一下网址<br>具体在这里</p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/1.png" alt="" class="lazyload"></p>
-<p>修改成自己的域名。<br>然后支付宝创建应用</p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/3.png" alt="" class="lazyload"></p>
-<p>网址要跟上面的网址一样<br>下面的三个圈圈<br>第一个圈圈跟圈圈上面那个一样<br>第二个是授权回调<br>这个在我们的后台<br>设置中心-支付设置</p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/4.png" alt="" class="lazyload"></p>
-<p>支付宝开放平台中生成密钥</p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/2.png" alt="" class="lazyload"></p>
-<p>这样生成一个，，<br>把商户应用私钥复制到下面图片的最下面那个框框。</p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/4.png" alt="" class="lazyload"></p>
-<p>把商户公钥复制到支付宝应用里面会出来一个支付宝公钥复制到<br><a href="https://dongfangmu.github.io/2020/01/15/zfaka发卡平台完整搭建/4.png" target="_blank" rel="noopener">  </a></p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/4.png" alt="" class="lazyload"></p>
-<p>这个图中间的框框里面。<br>然后把id对应一下复制过来。<br>支付宝写成上图那样就可以了。以我为准。<br>网站下面这样选</p>
-<p><img data-sizes="auto" data-src="https://dongfangmu.github.io/2020/01/15/zfaka%E5%8F%91%E5%8D%A1%E5%B9%B3%E5%8F%B0%E5%AE%8C%E6%95%B4%E6%90%AD%E5%BB%BA/5.png" alt="" class="lazyload"></p>
-<p>然后确定</p>
-<h3 id="注意，域名"><a href="#注意，域名" class="headerlink" title="注意，域名"></a>注意，域名</h3><p>1、最开始你执行脚本输入的域名<br>2、宝塔创建网站的域名<br>3、发卡后端修改的域名<br>4、支付宝应用填写的域名<br>这四个域名一定要一致！！！</p>
-<h2 id="脚本来自七彩blog，本文作者为-东方木"><a href="#脚本来自七彩blog，本文作者为-东方木" class="headerlink" title="脚本来自七彩blog，本文作者为@东方木"></a>脚本来自七彩blog，本文作者为@东方木</h2>
+                <p>本文将介绍如何使用宝塔面板快速搭建zfaka平台</p>
             
         </article>
     </div>
@@ -242,20 +218,13 @@
 
         <div class="nexmoe-post-meta">
             <a><i class="nexmoefont icon-calendar-fill"></i>2020年03月10日</a>
-            <a><i class="nexmoefont icon-areachart"></i>136 字</a>
+            <a><i class="nexmoefont icon-areachart"></i>149 字</a>
             <a><i class="nexmoefont icon-time-circle-fill"></i>大概 1 分钟</a>
         </div>
 
         <article>
             
-                <p>首先下载sstap安装好，然后打开v2ray，点击参数设置，开启udp转发，记住这里的端口号。</p>
-<p><img data-sizes="auto" data-src="https://res.cloudinary.com/linux-terminal/image/upload/v1583824390/tutorial/TIM%E5%9B%BE%E7%89%8720200310151237_kkofup.jpg(https://res.cloudinary.com/linux-terminal/image/upload/v1583824390/tutorial/TIM%E5%9B%BE%E7%89%8720200310151237_kkofup.jpg" alt="TIM图片20200310151237_kkofup.jpg" class="lazyload"></p>
-<p>打开安装好的sstap，添加加号，添加一个socks5代理，在ip地址那里填入127.0.0.1，端口号填入你再v2ray参数设置那里看到的端口后，然后点击保存就ok了。</p>
-<p><img data-sizes="auto" data-src="https://res.cloudinary.com/linux-terminal/image/upload/v1583824290/tutorial/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200305192519_epjbit.png(https://res.cloudinary.com/linux-terminal/image/upload/v1583824290/tutorial/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200305192519_epjbit.png" alt="微信截图_20200305192519_epjbit.png" class="lazyload"></p>
-<p><img data-sizes="auto" data-src="https://res.cloudinary.com/linux-terminal/image/upload/v1583824289/tutorial/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200305192422_uyepz0.png(https://res.cloudinary.com/linux-terminal/image/upload/v1583824289/tutorial/%E5%BE%AE%E4%BF%A1%E6%88%AA%E5%9B%BE_20200305192422_uyepz0.png" alt="微信截图_20200305192422_uyepz0.png" class="lazyload"></p>
-<p>选择自己刚新建的socks5代理连接就行了。我lol美测服延迟是250-300，玩云顶之弈的完全ok，其他的游戏我就没有测试了。</p>
-<p><img data-sizes="auto" data-src="C:%5CUsers%5Cclear%5CAppData%5CRoaming%5CTypora%5Ctypora-user-images%5Cimage-20200305193146770.png" alt="image-20200305193146770" class="lazyload"></p>
-
+                <p>本文将讲解如何使用sstap客户端</p>
             
         </article>
     </div>
@@ -278,7 +247,9 @@
 
         <article>
             
-                <blockquote>
+                <a id="more"></a>
+
+<blockquote>
 <p>一般，一个节点如果路由绕程严重（比如香港节点绕美国），或者速度过慢（比如明明Youtube能跑3W却只能跑3k），这个时候往往需要一台国内的服务器作为中转服务器，转发流量，从而获取更高的优先权(qos)。</p>
 </blockquote>
 <h5 id="1-国内中转节点的选择"><a href="#1-国内中转节点的选择" class="headerlink" title="1.国内中转节点的选择"></a>1.国内中转节点的选择</h5><p>国内vps大多价格昂贵，申请步骤繁琐，需要实名购买。<br>一般中转节点都会选择离国际公共网络出口近的位置。比如上海是公共网络出口，中转节点可以选择上海，可以选择江苏镇江，这样子用户-中转和中转-节点的延迟都会大大降低，提高体验质量。<br>作为小机场主（迫真），买不起国内vds，只能买一台nat作为中转。<br>这里推荐OLVPS，他家的泉州nat性价比挺高的。<br><a href="https://olvps.com/aff.php?aff=436" target="_blank" rel="noopener">注册链接</a> 含AFF</p>
@@ -333,9 +304,50 @@
 
         <article>
             
-                <blockquote>
-<p>旧站服务器太垃圾了，还用不了v2ray(一键脚本搭的)，正好cloudcone搞活动不如咱换个新的<br>| 配置 | 旧服 | 新服 |<br>| —- | —- | —- |<br>| 内存 | 1GB  | 2GB  |<br>| 硬盘 | 20GB | 30GB |<br>| 核心 | 1    | 1    |<br>| 价格 | 2$   | 2.5$ |<br><del>虽然是活动价，但是30$是真的肉疼</del><br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1602786110.png" alt="210RMB肉疼" class="lazyload"></p>
+                <a id="more"></a>
+
+<blockquote>
+<p>旧站服务器太垃圾了，还用不了v2ray(一键脚本搭的)，正好cloudcone搞活动不如咱换个新的</p>
 </blockquote>
+<table>
+<thead>
+<tr>
+<th>配置</th>
+<th>旧服</th>
+<th>新服</th>
+</tr>
+</thead>
+<tbody><tr>
+<td>内存</td>
+<td>1GB</td>
+<td>2GB</td>
+</tr>
+<tr>
+<td>硬盘</td>
+<td>20GB</td>
+<td>30GB</td>
+</tr>
+<tr>
+<td>核心</td>
+<td>1</td>
+<td>1</td>
+</tr>
+<tr>
+<td>价格</td>
+<td>2$</td>
+<td>2.5$</td>
+</tr>
+<tr>
+<td><del>虽然是活动价，但是30$是真的肉疼</del></td>
+<td></td>
+<td></td>
+</tr>
+<tr>
+<td><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1602786110.png" alt="210RMB肉疼" class="lazyload"></td>
+<td></td>
+<td></td>
+</tr>
+</tbody></table>
 <p>搜了下Google，sspanel迁移的教程挺少，唯一找到的是<a href="https://mrdc.me/2019/10/22/sspanel-migration-server-pagoda/" target="_blank" rel="noopener">这篇</a><br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/3549917599.png" alt="唯一的一篇" class="lazyload"><br>上文作者使用的是宝塔一键迁移，可是问题来了，我旧站的宝塔面板是5.x，ssp也是老版本，所以只能迁移数据库了</p>
 <h5 id="1-首先将旧站的数据库备份，然后下载至本地"><a href="#1-首先将旧站的数据库备份，然后下载至本地" class="headerlink" title="1. 首先将旧站的数据库备份，然后下载至本地"></a>1. 首先将旧站的数据库备份，然后下载至本地</h5><p><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/1556959754.png" alt="TIM截图20200201135259.png" class="lazyload"></p>
 <h5 id="2-使用宝塔面板搭建sspanel，教程在此"><a href="#2-使用宝塔面板搭建sspanel，教程在此" class="headerlink" title="2.使用宝塔面板搭建sspanel，教程在此"></a>2.使用宝塔面板搭建sspanel，<a href="https://blog.yun9.xyz/index.php/archives/16/" target="_blank" rel="noopener">教程在此</a></h5><p>到搭建到导入初始数据库时就可用停了，之后上传并导入旧站备份的数据库<br><img data-sizes="auto" data-src="https://blog.yun9.xyz/usr/uploads/2020/02/344611224.png" alt="TIM截图20200201135836.png" class="lazyload"></p>
@@ -372,27 +384,7 @@
 
         <article>
             
-                <h3 id="本文将介绍如何用docker对接SSR后端"><a href="#本文将介绍如何用docker对接SSR后端" class="headerlink" title="本文将介绍如何用docker对接SSR后端"></a>本文将介绍如何用docker对接SSR后端</h3><h5 id="准备内容"><a href="#准备内容" class="headerlink" title="准备内容"></a>准备内容</h5><ul>
-<li>后端服务器，cent os7或者debian 8，开放或部分开放防火墙</li>
-<li>前端服务器</li>
-</ul>
-<h5 id="1-安装docker"><a href="#1-安装docker" class="headerlink" title="1.安装docker"></a>1.安装docker</h5><figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">docker version &gt; /dev/null || curl -fsSL get.docker.com | bash</span><br><span class="line">service docker restart</span><br></pre></td></tr></table></figure>
-
-<h5 id="2-配置docker"><a href="#2-配置docker" class="headerlink" title="2.配置docker"></a>2.配置docker</h5><ul>
-<li>webapi(推荐)</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name=ssrmu -e NODE_ID=节点ID -e API_INTERFACE=modwebapi -e WEBAPI_URL=需要对接的地址 -e WEBAPI_TOKEN=前端设置的token --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always fanvinga/docker-ssrmu</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>数据库</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">docker run -d --name=ssrmu -e NODE_ID=节点ID -e API_INTERFACE=glzjinmod -e MYSQL_HOST=MYSQL地址 -e MYSQL_USER=mysql用户名 -e MYSQL_DB=数据库名 -e MYSQL_PASS=数据库密码 --network=host --log-opt max-size=50m --log-opt max-file=3 --restart=always fanvinga/docker-ssrmu</span><br></pre></td></tr></table></figure>
-<p><strong>注意事项</strong></p>
-<ol>
-<li>不建议前端开启强制https，后端对接应该使用http</li>
-<li>如果前端套用了cloudflare，应该使用IP代替域名对接(宝塔面板中应该在网站设置的添加域名处添加IP)</li>
-</ol>
-<h5 id="docker-常用命令"><a href="#docker-常用命令" class="headerlink" title="docker 常用命令"></a>docker 常用命令</h5><figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br><span class="line">7</span><br><span class="line">8</span><br><span class="line">9</span><br><span class="line">10</span><br></pre></td><td class="code"><pre><span class="line">docker container ls</span><br><span class="line">#查看所有正在运行的 docker </span><br><span class="line">docker logs -f dockername</span><br><span class="line">#查看选定 docker 的 log</span><br><span class="line">docker rm -f dockername</span><br><span class="line">#删除指定 docker</span><br><span class="line">docker system df</span><br><span class="line">#查看容器使用的磁盘空间</span><br><span class="line">docker system prune -a</span><br><span class="line">#对 docker 进行全面垃圾回收</span><br></pre></td></tr></table></figure>
+                <h3 id="本文将介绍如何用docker对接SSR后端"><a href="#本文将介绍如何用docker对接SSR后端" class="headerlink" title="本文将介绍如何用docker对接SSR后端"></a>本文将介绍如何用docker对接SSR后端</h3>
             
         </article>
     </div>
@@ -415,67 +407,7 @@
 
         <article>
             
-                <h3 id="本文将简单介绍如何使用宝塔搭建sspanel"><a href="#本文将简单介绍如何使用宝塔搭建sspanel" class="headerlink" title="本文将简单介绍如何使用宝塔搭建sspanel"></a>本文将简单介绍如何使用宝塔搭建sspanel</h3><h5 id="准备清单"><a href="#准备清单" class="headerlink" title="准备清单"></a>准备清单</h5><ol>
-<li>一台VPS，运行内存不少于2GB，硬盘不少于15GB，运行CentOS7</li>
-<li>SSH工具，Windows推荐Xshell，iOS推荐Termius，Android推荐JuiceSSH</li>
-</ol>
-<p>VPS对新手我只推荐<strong>CloudCone</strong>，因为他家经常搞活动，机器比Vultr家相对稳一些(cloudcone家网站被墙了，需要自备梯子)(<a href="https://app.cloudcone.com/?ref=3831" target="_blank" rel="noopener">点此跳转</a>)</p>
-<h5 id="1-准备工作"><a href="#1-准备工作" class="headerlink" title="1.准备工作"></a>1.准备工作</h5><p>升级，安装<strong>curl vim wget unzip git</strong></p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">yum update -y</span><br><span class="line">yum install -y curl vim wget unzip git</span><br></pre></td></tr></table></figure>
-<p>设置时区</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -sf /usr/share/zoneinfo/Asia/Shanghai /etc/localtime</span><br></pre></td></tr></table></figure>
-
-<p>2.安装宝塔面板</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">yum install -y wget &amp;&amp; wget -O install.sh http://download.bt.cn/install/install_6.0.sh &amp;&amp; sh install.sh</span><br></pre></td></tr></table></figure>
-<p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/152110669.png" alt="TIM截图20200130020514.png" class="lazyload"><br>输入<strong>Y</strong>，回车</p>
-<p>到这里就装好了，复制URL粘贴到浏览器即可，<strong>账号密码务必牢记</strong><del>如果记不住可用在shell里输入bt default找回</del><br><img data-sizes="auto" data-src="https://blog.anank.ke/usr/uploads/2019/09/1898578653.png" alt="" class="lazyload"></p>
-<p>###3.配置宝塔<br>点击勾选进入宝塔面板<br><img data-sizes="auto" data-src="https://blog.anank.ke/usr/uploads/2019/09/60998457.png" alt="" class="lazyload"></p>
-<h5 id="安装LNMP"><a href="#安装LNMP" class="headerlink" title="安装LNMP"></a>安装LNMP</h5><p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1103721618.png" alt="TIM截图20200130020819.png" class="lazyload"></p>
-<p>推荐配置</p>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">- Nginx 1.16</span><br><span class="line">- MySQL 5.6</span><br><span class="line">- PHP 7.2</span><br><span class="line">- phpMyAdmin 4.7(可选)</span><br></pre></td></tr></table></figure>
-<p>版本过高或者过低对机器都没好处<br>默认已勾选<strong>极速安装</strong>，点击安装等待完成</p>
-<h5 id="配置PHP"><a href="#配置PHP" class="headerlink" title="配置PHP"></a>配置PHP</h5><p>软件商店找到PHP，点击设置</p>
-<ul>
-<li>单击配置修改，将<strong>display_errors</strong>选项改为关闭</li>
-</ul>
-<p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/6789321.png" alt="TIM截图20200130021854.png" class="lazyload"></p>
-<ul>
-<li>单击禁用函数选项，删除<code>system proc_open proc_get_status putenv</code> <del>有可能没有proc_get_status,不用管</del></li>
-<li>单击性能调整，将运行模式改为静态<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1531595587.png" alt="TIM截图20200130021917.png" class="lazyload"><br>配置低的VPS，请通过swap虚拟内存解决性能问题，可参考<a href="https://i.kurumi.ink/2019/06/19/6/" target="_blank" rel="noopener">这篇文章</a></li>
-</ul>
-<h5 id="4-创建网页"><a href="#4-创建网页" class="headerlink" title="4.创建网页"></a>4.创建网页</h5><p>宝塔面板中单击<strong>网站</strong>，单击<strong>添加网站</strong>，按如图配置<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1743077220.png" alt="TIM截图20200131012715.png" class="lazyload"></p>
-<p>###5.安装网页</p>
-<ul>
-<li>在shell中执行</li>
-</ul>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br><span class="line">6</span><br></pre></td><td class="code"><pre><span class="line">cd /www/wwwroot/你的文件夹名</span><br><span class="line">git clone -b master https://github.com/Anankke/SSPanel-Uim.git tmp &amp;&amp; mv tmp/.git . &amp;&amp; rm -rf tmp &amp;&amp; git reset --hard</span><br><span class="line">git config core.filemode false</span><br><span class="line">wget https://getcomposer.org/installer -O composer.phar</span><br><span class="line">php composer.phar</span><br><span class="line">php composer.phar install</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>回到宝塔，点击网站的<strong>设置</strong></li>
-</ul>
-<p><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/729031470.png" alt="TIM截图20200131013156.png" class="lazyload"></p>
-<ul>
-<li>单击<strong>网站目录</strong>关闭<strong>防跨站攻击</strong>，将<strong>运行目录</strong>改为<strong>/public</strong>，并单击<strong>保存</strong></li>
-<li>在<strong>伪静态</strong>添加如下内容并<strong>保存</strong></li>
-</ul>
-<figure class="highlight plain"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br></pre></td><td class="code"><pre><span class="line">location &#x2F; &#123;</span><br><span class="line">    try_files $uri &#x2F;index.php$is_args$args;</span><br><span class="line">&#125;</span><br></pre></td></tr></table></figure>
-
-<ul>
-<li>更改网站文件夹权限<br>回到shell，输入<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br></pre></td><td class="code"><pre><span class="line">chmod -R 755 ../你的文件夹名/</span><br><span class="line">chown -R www:www ../你的文件夹名/</span><br></pre></td></tr></table></figure></li>
-<li>将数据库link到备份文件夹<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br></pre></td><td class="code"><pre><span class="line">ln -s /www/wwwroot/你的文件夹名/sql/glzjin_all.sql /www/backup/database/</span><br></pre></td></tr></table></figure></li>
-<li>导入数据库<br>回到宝塔，单击<strong>数据库</strong>按钮，点击导入<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/73544947.png" alt="TIM截图20200130023352.png" class="lazyload"></li>
-</ul>
-<ul>
-<li>更改网站配置文件<br>单击<strong>文件</strong>，进入<strong>config</strong>，将<code>.config.example.php</code>改为<code>.config.php</code>，并单击<strong>编辑</strong>进入<br>箭头所指处是你需要修改的地方，数据库名，用户，密码应与之前设置的一致<br><img data-sizes="auto" data-src="http://blog.yun9.xyz/usr/uploads/2020/01/1161970108.png" alt="TIM截图20200130022837.png" class="lazyload"></li>
-</ul>
-<p>单击<strong>保存</strong><br>至此，你的网站就能输入域名访问了<del>，但是还不能用</del></p>
-<h5 id="6-创建管理员，同步用户"><a href="#6-创建管理员，同步用户" class="headerlink" title="6.创建管理员，同步用户"></a>6.创建管理员，同步用户</h5><p>shell中执行以下命令</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br><span class="line">5</span><br></pre></td><td class="code"><pre><span class="line">php xcat createAdmin</span><br><span class="line">php xcat syncusers</span><br><span class="line">php xcat initQQWry</span><br><span class="line">php xcat resetTraffic</span><br><span class="line">php xcat initdownload</span><br></pre></td></tr></table></figure>
-
-<h5 id="7-配置定时任务"><a href="#7-配置定时任务" class="headerlink" title="7.配置定时任务"></a>7.配置定时任务</h5><p>shell中输入<code>crontab -e</code>,添加以下</p>
-<figure class="highlight shell"><table><tr><td class="gutter"><pre><span class="line">1</span><br><span class="line">2</span><br><span class="line">3</span><br><span class="line">4</span><br></pre></td><td class="code"><pre><span class="line">30 22 * * * php /www/wwwroot/你的文件夹名/xcat sendDiaryMail</span><br><span class="line">0 0 * * * php -n /www/wwwroot/你的文件夹名/xcat dailyjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat checkjob</span><br><span class="line">*/1 * * * * php /www/wwwroot/你的文件夹名/xcat syncnode</span><br></pre></td></tr></table></figure>
-<p>至此sspanel-v3-UIM(前端)搭建完成</p>
-
+                <h3 id="本文将简单介绍如何使用宝塔搭建sspanel"><a href="#本文将简单介绍如何使用宝塔搭建sspanel" class="headerlink" title="本文将简单介绍如何使用宝塔搭建sspanel"></a>本文将简单介绍如何使用宝塔搭建sspanel</h3>
             
         </article>
     </div>
@@ -486,7 +418,7 @@
   </div>
   <script src="https://cdn.jsdelivr.net/combine/npm/lazysizes@5.1.0/lazysizes.min.js,gh/highlightjs/cdn-release@9.15.8/build/highlight.min.js,npm/mdui@0.4.3/dist/js/mdui.min.js,gh/nexmoe/nexmoe.github.io@latest/js/app.js"></script>
 <script>hljs.initHighlightingOnLoad();</script>
-<!--<script src="/js/app.js?v=1583849624915"></script>-->
+<!--<script src="/js/app.js?v=1583885393530"></script>-->
 
 
     <script src="https://cdn.jsdelivr.net/gh/xtaodada/xtaodada.github.io@0.0.2/copy.js"></script>
